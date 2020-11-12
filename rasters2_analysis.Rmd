@@ -259,7 +259,7 @@ The rasterToPolygons function returns an old school Spatial (`sp`) object, so we
 ``` {r}
 ### load the half-degree silky shark data
 ss_rast_hcaf <- raster(here('_spatial/silkyshark_rast.tif'))
-ss_poly_sp <- raster::rasterToPolygons(ss_rast_hcaf, dissolve = FALSE)
+ss_poly_sp <- raster::rasterToPolygons(ss_rast_hcaf, dissolve = FALSE) # Dissolve = false means each raster cell is its own polygon. If it was TRUE, it would combine contiguous cells that have the same value
 ss_poly_sf <- st_as_sf(ss_poly_sp)
 
 ggplot(ss_poly_sf) +
